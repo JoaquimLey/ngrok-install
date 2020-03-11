@@ -1,0 +1,7 @@
+  
+authtoken: <add_your_token_here>
+region: <us|eu|ap|au>
+tunnels:
+  ssh:
+    proto: tcp
+    addr: 22
