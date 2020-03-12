@@ -29,11 +29,12 @@ echo '
 ###################################################################
 #                                                                 # 
 #                ngrok BOOT SSH tunnel Installer                  #
-#                                                                 # 
-# Welcome! This script will install a boot ngrok ssh service on   #
-# your RaspberryPi - This script will fail if ran on another EVT  #
+#                          Welcome!                               # 
+#   The script will install a boot-started ngrok ssh service on   #
+#  your RaspberryPi - the script will fail if ran on another EVT  #
 #                                                                 # 
 # --------------------------------------------------------------- # 
+#                                                                 # 
 # Author: Joaquim Ley, 2020                                       #
 #                                                                 # 
 # Repository: https://github.com/JoaquimLey/ngrok-install/        #
@@ -41,7 +42,11 @@ echo '
 ###################################################################'
 
 ####### NGROK SERVICE #####
-echo 'Adding ngrok service...'
+echo '
+
+Adding ngrok service...
+
+'
 echo '[Unit]
 Description=ngrok
 After=network.target
@@ -71,7 +76,11 @@ mkdir -p /opt/ngrok
 mv ngrok.yml /opt/ngrok
 
 # Download zip from ngrok's official website
-echo 'Downloading ngrok from https://ngrok.com/download (ngrok-stable-linux-amd64.zip)'
+echo '
+
+Downloading ngrok from https://ngrok.com/download (ngrok-stable-linux-amd64.zip)
+
+'
 cd /opt/ngrok
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 
@@ -82,7 +91,9 @@ sudo rm -r ngrok-stable-linux-amd64.zip
 
 chmod +x ngrok
 
-echo 'Starting ngrok service...'
+echo '
+
+Starting ngrok service...'
 systemctl enable ngrok.service
 systemctl start ngrok.service
 
@@ -98,27 +109,30 @@ echo '
 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
 🎯
-Now ssh into your pi with: ssh -p PORT_NUMBER pi@ngrok_ip_address.io:
+Now ssh into your pi with: ssh -p PORT_NUMBER pi@ngrok_ip_address.io
 
-For example, if in your ngrok dashboard your device looks like this:
- ----------------------------------------------------
-| tcp://0.tcp.eu.ngrok.io:11223   198.84.214.31   eu |
-|                                                    |
-| URL: tcp://0.tcp.eu.ngrok.io:17721                 |
-|                                                    |
-| Client IP: 198.84.214.31                           |
-|                                                    | 
-| Region: eu                                         |
-|                                                    |
-| Established: Mar 12th, 2020 10:24:31 UTC           |
- ----------------------------------------------------
 
-You can ssh into your pi with:
+For example:
+On your ngrok dashboard see your device details
+-----------------------------------------------------------------
+| ▶ | tcp://0.tcp.eu.ngrok.io:11223 | 188.93.224.31 | eu | DATE |
+-----------------------------------------------------------------
+
+You can ssh into your pi with the following command:
 ----------------------------------------------------
 
 ssh -p 11223 pi@0.tcp.eu.ngrok.io
 
 ----------------------------------------------------
 
+Make sure to ⭐️ the repository, report any bugs by opening an issue
+https://github.com/JoaquimLey/ngrok-install/
+
+You can reach out to me on twitter:
+https://twitter.com/JoaquimLey
+
+Happy remote sshing!
+
 Cheers,
+Joaquim Ley
 '
