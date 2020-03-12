@@ -20,6 +20,8 @@ sudo ./install.sh <AUTH_TOKEN> <REGION>
 ```
 - `REGION` argument is optional (defaults to `us`)
 
+----------------------
+
 ## Uninstall
 To stop/remove ngrok from your pi
 
@@ -63,12 +65,12 @@ ngrok 11223
 # Same as (depending on your default value)
 ngrok 11223 eu
 
-# Or if I wish to connect to my non-default region, e.g us
+# If I wish to connect to my non-default region, e.g us
 ngrok 11223 us
 ```
 
 ### Misc
-- You can find the config files in the [manual](manual/) if you wish to do it manually
+- You can find the config files in the [manual](manual/) folder if you wish to do it manually.
 - Special thanks: https://github.com/vincenthsu/systemd-ngrok
 - I'm not affiliated with ngrok.com or inconshreveable.com
 
