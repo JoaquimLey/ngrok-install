@@ -44,11 +44,7 @@ echo '
 ###################################################################'
 
 ####### NGROK SERVICE #####
-echo '
-
-Adding ngrok service...
-
-'
+echo 'Adding ngrok service to systemd...'
 echo '[Unit]
 Description=ngrok
 After=network.target
@@ -83,7 +79,7 @@ echo '
 Downloading ngrok from https://ngrok.com/download (ngrok-stable-linux-amd64.zip)
 
 '
-cd /opt/ngrok
+cd /opt/ngrok/
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 
 echo 'Download complete! unziping.....'
@@ -93,39 +89,35 @@ sudo rm -r ngrok-stable-linux-amd64.zip
 
 chmod +x ngrok
 
+echo 'Enabling ngrok.service'
+sudo systemctl enable ngrok.service
+
+echo 'Starting ngrok.service'
+sudo systemctl start ngrok.service
+
 echo '
-
-Starting ngrok service...'
-systemctl enable ngrok.service
-systemctl start ngrok.service
-
-echo '
-
 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
           ! ngrok tunnel is online !
     Check the ip address on your dashboard
 
-     https://dashboard.ngrok.com/status     
+    https://www.dashboard.ngrok.com/status     
                                               
 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
 🎯
 Now ssh into your pi with: ssh -p PORT_NUMBER pi@ngrok_ip_address.io
 
-
 For example:
-On your ngrok dashboard see your device details
+Go to your ngrok dashboard and see your device details
 -----------------------------------------------------------------
 | ▶ | tcp://0.tcp.eu.ngrok.io:11223 | 188.93.224.31 | eu | DATE |
 -----------------------------------------------------------------
 
 You can ssh into your pi with the following command:
 ----------------------------------------------------
-
 ssh -p 11223 pi@0.tcp.eu.ngrok.io
 
-----------------------------------------------------
 
 Make sure to ⭐️ the repository, report any bugs by opening an issue
 https://github.com/JoaquimLey/ngrok-install/
