@@ -86,7 +86,7 @@ wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 
 echo 'Download complete! unziping.....'
 unzip ngrok-stable-linux-amd64.zip
-# No need to keep the downloable on the device
+# No need to keep the downloaded zip on the device
 sudo rm -r ngrok-stable-linux-amd64.zip
 
 chmod +x ngrok
