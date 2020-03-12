@@ -8,18 +8,40 @@ fi
 TOKEN=${1:-NULL}
 REGION=${2:-us}
 
-if [ $TOKEN == NULL ]; then
-    echo 'Please specify your auth token, you can get it here: https://dashboard.ngrok.com/auth'
-    echo './install.sh <your_auth_token> <region:us|eu|ap|au> (optional)'
+# Check for null token and/or invalid token length (49)
+if [ $TOKEN == NULL ] || [ ${#TOKEN} != "49" ]; then
+    echo 'ERROR: Please specify a valid auth token, you can get it here: https://dashboard.ngrok.com/auth'
     exit 1
 fi
 
-echo 'Welcome, this script will install a autostart ngrok ssh service'
-echo 'Author: Joaquim Ley, 2020'
-echo 'Repository: https://github.com/JoaquimLey/ngrok-install/'
+if [ "$REGION" != "us" ] && [ "$REGION" != "eu" ] && [ "$REGION" != "ap" ] && [ "$REGION" != "au" ]; then
+   echo "Invalid region - ${REGION}"
+   echo 'Please specify a valid option <us|eu|ap|au>:'
+   echo 'us - United States of America (Dallas) - default'
+   echo 'eu - Europe (Frankfurt)'
+   echo 'ap - Asia/Pacific (Singapore)'
+   echo 'au - Australia (Sydney)'
+   echo 'e.g: ./install.sh <YOUR_AUTH_TOKEN> eu'
+   exit 1;
+fi
 
-###### NGROK SERVICE #####
-echo 'Adding boot ngrok service...'
+echo '
+###################################################################
+#                                                                 # 
+#                ngrok BOOT SSH tunell Installer                  #
+#                                                                 # 
+# Welcome! This script will install a boot ngrok ssh service on   #
+# your RaspberryPi - This script will fail if ran on another EVT  #
+#                                                                 # 
+# --------------------------------------------------------------- # 
+# Author: Joaquim Ley, 2020                                       #
+#                                                                 # 
+# Repository: https://github.com/JoaquimLey/ngrok-install/        #
+#                                                                 # 
+###################################################################'
+
+# ###### NGROK SERVICE #####
+echo 'Adding ngrok service...'
 echo '[Unit]
 Description=ngrok
 After=network.target
@@ -43,16 +65,19 @@ tunnels:
   ssh:
     proto: tcp
     addr: 22" > ngrok.yml
-    
+
+# Create ngrok folder and move config file there
 mkdir -p /opt/ngrok
 mv ngrok.yml /opt/ngrok
 
-echo 'Downloading ngrok-stable-linux-amd64.zip'
+# Download from 
+echo 'Downloading ngrok from https://ngrok.com/download (ngrok-stable-linux-amd64.zip)'
 cd /opt/ngrok
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 
-echo 'Download complete, unziping'
+echo 'Download complete! unziping.....'
 unzip ngrok-stable-linux-amd64.zip
+# No need to keep the downloable on the device
 sudo rm -r ngrok-stable-linux-amd64.zip
 
 chmod +x ngrok
