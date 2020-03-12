@@ -60,6 +60,7 @@ _Since I'm in Europe I've defaulted the alias to `eu`, depending on your region 
 Now to ssh into any of my pi's I just run
 
 ```bash
+# 11223 is the PORT number
 ngrok 11223
 
 # Same as (depending on your default value)
