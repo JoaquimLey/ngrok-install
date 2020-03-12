@@ -14,6 +14,7 @@ if [ $TOKEN == NULL ] || [ ${#TOKEN} != "49" ]; then
     exit 1
 fi
 
+# Check for valid region option
 if [ "$REGION" != "us" ] && [ "$REGION" != "eu" ] && [ "$REGION" != "ap" ] && [ "$REGION" != "au" ]; then
    echo "Invalid region - ${REGION}"
    echo 'Please specify a valid option <us|eu|ap|au>:'
