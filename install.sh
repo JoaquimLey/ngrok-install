@@ -80,7 +80,7 @@ Downloading ngrok from https://ngrok.com/download (ngrok-stable-linux-amd64.zip)
 
 '
 cd /opt/ngrok/
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.zip
 
 echo 'Download complete! unziping.....'
 unzip ngrok-stable-linux-amd64.zip
