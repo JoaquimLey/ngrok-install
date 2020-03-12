@@ -36,6 +36,7 @@ echo '
 # --------------------------------------------------------------- # 
 #                                                                 # 
 # Author: Joaquim Ley, 2020                                       #
+# https://twitter.com/JoaquimLey                                  # 
 #                                                                 # 
 # Repository: https://github.com/JoaquimLey/ngrok-install/        #
 #                                                                 # 
@@ -128,7 +129,7 @@ ssh -p 11223 pi@0.tcp.eu.ngrok.io
 Make sure to ⭐️ the repository, report any bugs by opening an issue
 https://github.com/JoaquimLey/ngrok-install/
 
-You can reach out to me on twitter:
+You can always reach out to me on twitter:
 https://twitter.com/JoaquimLey
 
 Happy remote sshing!
