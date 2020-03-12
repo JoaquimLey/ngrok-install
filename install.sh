@@ -61,5 +61,5 @@ echo 'Starting ngrok service...'
 systemctl enable ngrok.service
 systemctl start ngrok.service
 
-echo 'ngrok tunnel is live!'
+echo 'ngrok tunnel is online!'
 echo 'Check the ip: https://dashboard.ngrok.com/status'
