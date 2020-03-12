@@ -1,5 +1,5 @@
 # ngrok-install
-A simple-self sufficient script that installs a ngrok ssh tunnel service that runs on boot for the raspberry pi:
+A simple self-sufficient script that installs a ngrok ssh tunnel service that runs on boot for the raspberry pi:
 
 ## Install
 
@@ -9,11 +9,13 @@ You'll need your account's `AUTH_TOKEN` get it on your ngrok's dashboard:
 On your Pi's shell
 1. Copy/Download the `install.sh` file
 2. Give permission:
- ```
+
+```bash
 sudo chmod 755 install.sh
 ```
 3. Run
-```
+
+```bash
 sudo ./install.sh <AUTH_TOKEN> <REGION>
 ```
 - `REGION` argument is optional (defaults to `us`)
@@ -24,12 +26,13 @@ To stop/remove ngrok from your pi
 On your Pi's shell
 1. Copy/Download the `uninstall.sh` file
 2. Give permission:
- ```
+
+```bash
 sudo chmod 755 uninstall.sh
 ```
 3. Run
 
-```
+```bash
 sudo ./uninstall.sh
 ```
 
@@ -55,6 +58,7 @@ Since **I'm in Europe I've defaulted** the alias to `eu`, depending on your regi
 
 #### Now to ssh into any of my pi's I just run
 _where `11223` is the port:_
+
 ```bash
 ngrok 11223
 
@@ -66,7 +70,7 @@ ngrok 11223 us
 ```
 
 ### Misc
-
+- You can find the config files in the [manual](manual/) if you wish to do it manually
 - Special thanks: https://github.com/vincenthsu/systemd-ngrok
 - I'm not affiliated with ngrok.com or inconshreveable.com
 
