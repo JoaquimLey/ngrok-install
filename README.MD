@@ -46,26 +46,24 @@ On your local machine's `bash`/`zshrc` add:
 alias ngrok='function _f() { ssh -p "$1" pi@0.tcp."${2:-eu}".ngrok.io } ; _f'
 ```
 
-#### Connect using the alias
+### Connect using the alias
 Open the terminal and run:
 ```
 ngrok PORT REGION
 ```
-- `REGION` argument is optional: `<us|eu|ap|au>`
 
-Since **I'm in Europe I've defaulted** the alias to `eu`, depending on your region you can change:
-`"${2:-eu}"` to your choice of default region, **e.g:** `"${2:-us}"`
+_Since I'm in Europe I've defaulted the alias to `eu`, depending on your region you can change:
+`"${2:-eu}"` to your choice of default region, e.g: `"${2:-us}"`_
 
-#### Now to ssh into any of my pi's I just run
-_where `11223` is the port:_
+Now to ssh into any of my pi's I just run
 
 ```bash
 ngrok 11223
 
 # Same as (depending on your default value)
-ngrok 11223 <us|eu|ap|au>
+ngrok 11223 eu
 
-# Or if I wish to connect to my non-default region
+# Or if I wish to connect to my non-default region, e.g us
 ngrok 11223 us
 ```
 
