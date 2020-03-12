@@ -20,6 +20,12 @@ sudo ./install.sh <AUTH_TOKEN> <REGION>
 ```
 - `REGION` argument is optional (defaults to `us`)
 
+After the installation is complete you can delete the `install.sh` file.
+If you get erros from linux complaining about read-only file system try to run:
+```
+sudo mount -o remount,rw /
+```
+
 ----------------------
 
 ## Uninstall
