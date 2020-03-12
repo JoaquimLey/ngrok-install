@@ -9,7 +9,7 @@ TOKEN=${1:-NULL}
 REGION=${2:-us}
 
 if [ $TOKEN == NULL ]; then
-    echo 'Please specify your auth token'
+    echo 'Please specify your auth token, you can get it here: https://dashboard.ngrok.com/auth'
     echo './install.sh <your_auth_token> <region:us|eu|ap|au> (optional)'
     exit 1
 fi
@@ -60,3 +60,6 @@ chmod +x ngrok
 echo 'Starting ngrok service...'
 systemctl enable ngrok.service
 systemctl start ngrok.service
+
+echo 'ngrok tunnel is live!'
+echo 'Check the ip: https://dashboard.ngrok.com/status'
